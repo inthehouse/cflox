@@ -6,7 +6,7 @@ interface Props {
 
 const ConverterForm: React.FC<Props> = ({ onSubmit }) => {
     const [number, setNumber] = useState<string>('');
-    const [conversionType, setConversionType] = useState<string>('Decimal to Roman'); // Change the default value
+    const [conversionType, setConversionType] = useState<string>('DecimaltoRoman'); // Change the default value
 
     const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNumber(e.target.value);
@@ -34,8 +34,8 @@ const ConverterForm: React.FC<Props> = ({ onSubmit }) => {
             <label>
                 Conversion Type:
                 <select value={conversionType} onChange={handleConversionTypeChange}>
-                    <option value="DecimalToRoman">Decimal to Roman</option>
-                    <option value="BinaryToRoman">Binary to Roman</option>
+                    <option value="DecimaltoRoman">Decimal to Roman</option>
+                    <option value="BinarytoRoman">Binary to Roman</option>
                     {/* more options come here*/}
                 </select>
             </label>
