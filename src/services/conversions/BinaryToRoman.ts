@@ -1,14 +1,15 @@
 import { Conversion } from './Conversion';
+import { DecimalToRoman } from './DecimalToRoman';
 
 export class BinaryToRoman implements Conversion {
   name = 'Binary to Roman';
 
   convert(input: string): string {
-    const binary = parseInt(input, 2);
-    if (isNaN(binary)) {
+    const decimalConverter = new DecimalToRoman();
+    const decimal = parseInt(input, 2);
+    if (isNaN(decimal)) {
       throw new Error('Invalid input. Please enter a valid binary number.');
     }
-
-    return (new Array(binary + 1)).join('I');
+    return decimalConverter.convert(decimal.toString());
   }
 }
