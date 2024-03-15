@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ConverterForm from './ConverterForm';
 import ConverterResult from './ConverterResult';
 import { ConverterService } from '../../services/ConverterService';
+import '../../styles/converter/main.css';
 
 const converterService = new ConverterService();
 
@@ -19,10 +20,15 @@ const Converter: React.FC = () => {
   };
 
   return (
-    <div className="Converter">
-      <h1>Number Converter</h1>
+    <div className="container">
+      <div className="header">
+        <h1>Number Converter</h1>
+      </div>
       <ConverterForm onSubmit={handleSubmit} />
-      {result && <ConverterResult result={result} />}
+      <ConverterResult result={result} />
+      <div className="footer">
+        <p>© Momal's Number Converter</p>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../styles/converter/converterform.css';
 
 interface Props {
     onSubmit: (number: string, conversionType: string) => void;
@@ -6,7 +7,7 @@ interface Props {
 
 const ConverterForm: React.FC<Props> = ({ onSubmit }) => {
     const [number, setNumber] = useState<string>('');
-    const [conversionType, setConversionType] = useState<string>('DecimaltoRoman'); // Change the default value
+    const [conversionType, setConversionType] = useState<string>('DecimaltoRoman');
 
     const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNumber(e.target.value);
@@ -22,7 +23,7 @@ const ConverterForm: React.FC<Props> = ({ onSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-container">
             <label>
                 Number:
                 <input

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/converter/converterresult.css';
 
 interface Props {
   result: string;
@@ -6,7 +7,7 @@ interface Props {
 
 const ConverterResult: React.FC<Props> = ({ result }) => {
   return (
-    <div>Result: {result}</div>
+    <div className="result-container">Result: {result}</div>
   );
 }
 
