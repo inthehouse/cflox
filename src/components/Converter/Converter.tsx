@@ -8,13 +8,30 @@ const converterService = new ConverterService();
 
 const Converter: React.FC = () => {
   const [result, setResult] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   const handleSubmit = (number: string, conversionType: string) => {
+    setError('');
+    console.log(conversionType)
     try {
+      if (isNaN(Number(number))) {
+        throw new Error('Invalid input. Please enter a valid number.');
+      }
+      if (conversionType === 'BinarytoRoman') {
+        if (!/^[01]+$/.test(number)) {
+          throw new Error('Invalid input for Binary to Roman conversion. Please enter only 0s and 1s.');
+        }
+      }
       const convertedResult = converterService.convert(number, conversionType);
       setResult(convertedResult);
     } catch (error) {
-      console.error('Error:', error);
+      if (error instanceof Error) {
+        console.error(error.message);
+        setError(error.message);
+      } else {
+        console.error(error);
+        setError('An unknown error occurred.');
+      }
       setResult('');
     }
   };
@@ -25,6 +42,7 @@ const Converter: React.FC = () => {
         <h1>Number Converter</h1>
       </div>
       <ConverterForm onSubmit={handleSubmit} />
+      {error && <div className="error">{error}</div>}
       <ConverterResult result={result} />
       <div className="footer">
         <p>© Momal's Number Converter</p>
