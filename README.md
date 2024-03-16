@@ -9,3 +9,7 @@ In the project directory, you can run:
 
 ### `npm install`
 ### `npm start`
+
+For tests you can run
+
+### npm test
