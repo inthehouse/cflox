@@ -12,7 +12,6 @@ const Converter: React.FC = () => {
 
   const handleSubmit = (number: string, conversionType: string) => {
     setError('');
-    console.log(conversionType)
     try {
       if (isNaN(Number(number))) {
         throw new Error('Invalid input. Please enter a valid number.');
@@ -26,10 +25,8 @@ const Converter: React.FC = () => {
       setResult(convertedResult);
     } catch (error) {
       if (error instanceof Error) {
-        console.error(error.message);
         setError(error.message);
       } else {
-        console.error(error);
         setError('An unknown error occurred.');
       }
       setResult('');
