@@ -19,7 +19,7 @@ const ConverterForm: React.FC<Props> = ({ onSubmit }) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        onSubmit(number, conversionType.replace(/\s+/g, ''));
+        onSubmit(number, conversionType);
     };
 
     return (

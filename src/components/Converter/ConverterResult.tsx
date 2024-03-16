@@ -7,7 +7,7 @@ interface Props {
 
 const ConverterResult: React.FC<Props> = ({ result }) => {
   return (
-    <div className="result-container">Result: {result}</div>
+    <div data-testid="result" className="result-container">Result: {result}</div>
   );
 }
 
