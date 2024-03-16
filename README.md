@@ -12,4 +12,4 @@ In the project directory, you can run:
 
 For tests you can run
 
-### npm test
+### `npm test`
